@@ -215,6 +215,10 @@ Using those scripts, you understand that:
 - stream.py search filter aims has been designed to target conference hashtag... but it is a standard Twitter search filter supporting all the options Twitter allows
 - graphify.py does only support Neo4j, bolt protocol, and cipher language as for now
 
+## Example of the result
+If successful you should be able to use Neo4j tools to visualize and drill your Tweet Graph:
+![Tweet Graph](https://github.com/identitymonk/ConferenceTweetMapper/Screencap/TweetGraph.PNG "Tweet Graph view")
+
 ## Roadmap
 - Better date management
 - Change the Post and Pre conference period id to something speciifc to the conference upload to prevent cross mapping
