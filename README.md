@@ -30,7 +30,8 @@ In order to use those scripts you must have:
 ## stream.py
 This script can be used as follow:
 
-```usage: stream.py [-h] {file,line} ...
+```
+usage: stream.py [-h] {file,line} ...
 
 Export tweets that match the search query
 
@@ -45,7 +46,8 @@ optional arguments:
 
 The file subcommand supports the following syntax:
 
-```usage: stream.py file [-h] [-i INI_FILE]
+```
+usage: stream.py file [-h] [-i INI_FILE]
 
 positional arguments:
   cmd
@@ -58,7 +60,8 @@ optional arguments:
 
 The line subcommand supports the following syntax:
 
-```usage: stream.py line [-h] -s SEARCH -ck CONSUMER_KEY -cs CONSUMER_SECRET -ak
+```
+usage: stream.py line [-h] -s SEARCH -ck CONSUMER_KEY -cs CONSUMER_SECRET -ak
                       ACCESS_KEY -as ACCESS_SECRET -o OUTPUT_FILENAME
                       [-b BACKUP_INI_FILE_NAME]
 
@@ -86,7 +89,8 @@ optional arguments:
 ## graphify.py
 This script can be used as follow:
 
-```usage: graphify.py [-h] {file,line} ...
+```
+usage: graphify.py [-h] {file,line} ...
 
 Import tweets in a Graph DB
 
@@ -101,7 +105,8 @@ optional arguments:
 
 The file subcommand supports the following syntax:
 
-```usage: graphify.py file [-h] [-i INI_FILE]
+```
+usage: graphify.py file [-h] [-i INI_FILE]
 
 positional arguments:
   cmd
@@ -114,7 +119,8 @@ optional arguments:
 
 The line subcommand supports the following syntax:
 
-```usage: graphify.py line [-h] [-type DB_TYPE] [-proto PROTOCOL]
+```
+usage: graphify.py line [-h] [-type DB_TYPE] [-proto PROTOCOL]
                         [-lang LANGUAGE] [-server SERVER_NAME]
                         [-port SERVER_PORT] -pwd DB_PASSWORD [-set RESULT_SET]
                         -name CONFERENCE_NAME -loc CONFERENCE_LOCATION -time
