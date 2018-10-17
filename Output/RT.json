@@ -1,0 +1,389 @@
+[{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Wed Jul 04 12:24:58 +0000 2018", 
+    "entities": {
+        "hashtags": [
+            {
+                "indices": [
+                    87, 
+                    99
+                ], 
+                "text": "Identiverse"
+            }
+        ], 
+        "media": [
+            {
+                "display_url": "pic.twitter.com/AlzP9hXcs5", 
+                "expanded_url": "https://twitter.com/andredurand/status/1011951820363698181/photo/1", 
+                "id": 1011951818908332032, 
+                "id_str": "1011951818908332032", 
+                "indices": [
+                    100, 
+                    123
+                ], 
+                "media_url": "http://pbs.twimg.com/media/Dgss0VfXcAA_Kuo.jpg", 
+                "media_url_https": "https://pbs.twimg.com/media/Dgss0VfXcAA_Kuo.jpg", 
+                "sizes": {
+                    "large": {
+                        "h": 1926, 
+                        "resize": "fit", 
+                        "w": 2048
+                    }, 
+                    "medium": {
+                        "h": 1129, 
+                        "resize": "fit", 
+                        "w": 1200
+                    }, 
+                    "small": {
+                        "h": 639, 
+                        "resize": "fit", 
+                        "w": 680
+                    }, 
+                    "thumb": {
+                        "h": 150, 
+                        "resize": "crop", 
+                        "w": 150
+                    }
+                }, 
+                "source_status_id": 1011951820363698181, 
+                "source_status_id_str": "1011951820363698181", 
+                "source_user_id": 9980562, 
+                "source_user_id_str": "9980562", 
+                "type": "photo", 
+                "url": "https://t.co/AlzP9hXcs5"
+            }
+        ], 
+        "symbols": [], 
+        "urls": [], 
+        "user_mentions": [
+            {
+                "id": 9980562, 
+                "id_str": "9980562", 
+                "indices": [
+                    3, 
+                    15
+                ], 
+                "name": "Andre Durand", 
+                "screen_name": "andredurand"
+            }, 
+            {
+                "id": 59491835, 
+                "id_str": "59491835", 
+                "indices": [
+                    79, 
+                    85
+                ], 
+                "name": "Optiv", 
+                "screen_name": "Optiv"
+            }
+        ]
+    }, 
+    "extended_entities": {
+        "media": [
+            {
+                "display_url": "pic.twitter.com/AlzP9hXcs5", 
+                "expanded_url": "https://twitter.com/andredurand/status/1011951820363698181/photo/1", 
+                "id": 1011951818908332032, 
+                "id_str": "1011951818908332032", 
+                "indices": [
+                    100, 
+                    123
+                ], 
+                "media_url": "http://pbs.twimg.com/media/Dgss0VfXcAA_Kuo.jpg", 
+                "media_url_https": "https://pbs.twimg.com/media/Dgss0VfXcAA_Kuo.jpg", 
+                "sizes": {
+                    "large": {
+                        "h": 1926, 
+                        "resize": "fit", 
+                        "w": 2048
+                    }, 
+                    "medium": {
+                        "h": 1129, 
+                        "resize": "fit", 
+                        "w": 1200
+                    }, 
+                    "small": {
+                        "h": 639, 
+                        "resize": "fit", 
+                        "w": 680
+                    }, 
+                    "thumb": {
+                        "h": 150, 
+                        "resize": "crop", 
+                        "w": 150
+                    }
+                }, 
+                "source_status_id": 1011951820363698181, 
+                "source_status_id_str": "1011951820363698181", 
+                "source_user_id": 9980562, 
+                "source_user_id_str": "9980562", 
+                "type": "photo", 
+                "url": "https://t.co/AlzP9hXcs5"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 1014485215253803008, 
+    "id_str": "1014485215253803008", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "is_quote_status": false, 
+    "lang": "en", 
+    "metadata": {
+        "iso_language_code": "en", 
+        "result_type": "recent"
+    }, 
+    "place": null, 
+    "possibly_sensitive": false, 
+    "retweet_count": 19, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Wed Jun 27 12:38:09 +0000 2018", 
+        "entities": {
+            "hashtags": [
+                {
+                    "indices": [
+                        70, 
+                        82
+                    ], 
+                    "text": "Identiverse"
+                }
+            ], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/AlzP9hXcs5", 
+                    "expanded_url": "https://twitter.com/andredurand/status/1011951820363698181/photo/1", 
+                    "id": 1011951818908332032, 
+                    "id_str": "1011951818908332032", 
+                    "indices": [
+                        83, 
+                        106
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/Dgss0VfXcAA_Kuo.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/Dgss0VfXcAA_Kuo.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 1926, 
+                            "resize": "fit", 
+                            "w": 2048
+                        }, 
+                        "medium": {
+                            "h": 1129, 
+                            "resize": "fit", 
+                            "w": 1200
+                        }, 
+                        "small": {
+                            "h": 639, 
+                            "resize": "fit", 
+                            "w": 680
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "https://t.co/AlzP9hXcs5"
+                }
+            ], 
+            "symbols": [], 
+            "urls": [], 
+            "user_mentions": [
+                {
+                    "id": 59491835, 
+                    "id_str": "59491835", 
+                    "indices": [
+                        62, 
+                        68
+                    ], 
+                    "name": "Optiv", 
+                    "screen_name": "Optiv"
+                }
+            ]
+        }, 
+        "extended_entities": {
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/AlzP9hXcs5", 
+                    "expanded_url": "https://twitter.com/andredurand/status/1011951820363698181/photo/1", 
+                    "id": 1011951818908332032, 
+                    "id_str": "1011951818908332032", 
+                    "indices": [
+                        83, 
+                        106
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/Dgss0VfXcAA_Kuo.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/Dgss0VfXcAA_Kuo.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 1926, 
+                            "resize": "fit", 
+                            "w": 2048
+                        }, 
+                        "medium": {
+                            "h": 1129, 
+                            "resize": "fit", 
+                            "w": 1200
+                        }, 
+                        "small": {
+                            "h": 639, 
+                            "resize": "fit", 
+                            "w": 680
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "https://t.co/AlzP9hXcs5"
+                }
+            ]
+        }, 
+        "favorite_count": 33, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 1011951820363698181, 
+        "id_str": "1011951820363698181", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "is_quote_status": false, 
+        "lang": "en", 
+        "metadata": {
+            "iso_language_code": "en", 
+            "result_type": "recent"
+        }, 
+        "place": null, 
+        "possibly_sensitive": false, 
+        "retweet_count": 19, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+        "text": "Identity - Everyone owns it and no one owns it. Richard Bird \u2066@Optiv\u2069 #Identiverse https://t.co/AlzP9hXcs5", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Mon Nov 05 22:47:18 +0000 2007", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Ping CEO. Runs towards fear. Runs a lot.", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "andredurand.com", 
+                            "expanded_url": "http://www.andredurand.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/Dra5sBLFZy"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 333, 
+            "follow_request_sent": false, 
+            "followers_count": 2499, 
+            "following": false, 
+            "friends_count": 428, 
+            "geo_enabled": true, 
+            "has_extended_profile": false, 
+            "id": 9980562, 
+            "id_str": "9980562", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 85, 
+            "location": "Denver", 
+            "name": "Andre Durand", 
+            "notifications": false, 
+            "profile_background_color": "0099B9", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme4/bg.gif", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme4/bg.gif", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/9980562/1523051857", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/989693723423354880/QZjh6gp5_normal.jpg", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/989693723423354880/QZjh6gp5_normal.jpg", 
+            "profile_link_color": "0099B9", 
+            "profile_sidebar_border_color": "5ED4DC", 
+            "profile_sidebar_fill_color": "95E8EC", 
+            "profile_text_color": "3C3940", 
+            "profile_use_background_image": true, 
+            "protected": false, 
+            "screen_name": "andredurand", 
+            "statuses_count": 781, 
+            "time_zone": null, 
+            "translator_type": "none", 
+            "url": "http://t.co/Dra5sBLFZy", 
+            "utc_offset": null, 
+            "verified": false
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+    "text": "RT @andredurand: Identity - Everyone owns it and no one owns it. Richard Bird \u2066@Optiv\u2069 #Identiverse https://t.co/AlzP9hXcs5", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Sat Nov 12 18:18:32 +0000 2011", 
+        "default_profile": true, 
+        "default_profile_image": false, 
+        "description": "IAM architect | API design enthusiast | German in Switzerland", 
+        "entities": {
+            "description": {
+                "urls": []
+            }
+        }, 
+        "favourites_count": 46, 
+        "follow_request_sent": false, 
+        "followers_count": 70, 
+        "following": false, 
+        "friends_count": 65, 
+        "geo_enabled": false, 
+        "has_extended_profile": false, 
+        "id": 410889242, 
+        "id_str": "410889242", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 9, 
+        "location": "Basel, Switzerland", 
+        "name": "Christian Ludt", 
+        "notifications": false, 
+        "profile_background_color": "C0DEED", 
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_tile": false, 
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/410889242/1439538257", 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1010963630748262401/ReVcmpM5_normal.jpg", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1010963630748262401/ReVcmpM5_normal.jpg", 
+        "profile_link_color": "1DA1F2", 
+        "profile_sidebar_border_color": "C0DEED", 
+        "profile_sidebar_fill_color": "DDEEF6", 
+        "profile_text_color": "333333", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "chrisludt", 
+        "statuses_count": 112, 
+        "time_zone": null, 
+        "translator_type": "none", 
+        "url": null, 
+        "utc_offset": null, 
+        "verified": false
+    }
+}]
