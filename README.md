@@ -217,7 +217,7 @@ Using those scripts, you understand that:
 
 ## Example of the result
 If successful you should be able to use Neo4j tools to visualize and drill your Tweet Graph:
-![Tweet Graph](https://github.com/identitymonk/ConferenceTweetMapper/Screencap/TweetGraph.PNG "Tweet Graph view")
+![Tweet Graph](https://github.com/identitymonk/ConferenceTweetMapper/blob/master/Screencap/TweetGraph.PNG "Tweet Graph view")
 
 ## Roadmap
 - Better date management
