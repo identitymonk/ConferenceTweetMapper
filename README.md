@@ -180,10 +180,10 @@ output_filename = Output/search.json
 search = #Identiverse
 
 [Twitter]
-consumer_key = x7XOywj3rgsSKn9MXkBNBpecr
-consumer_secret = o4lHJPQQyVGQaojTGPTHR9BOXuEzvRzbghBkPMrAyaBoPRQjvd
-access_key = 3994061302-XFnBADeFR4WBxZzmXAy4sXn2sSHu6aYldjZgbVk
-access_secret = g4FCmePHacsvv7nJOp2sJRaY9nbnH556s97whuOKILFrI
+consumer_key = <your_consumer_key>
+consumer_secret = <your_consumer_secret>
+access_key = <your_access_key>
+access_secret = <your_access_secret>
 
 [Graph]
 db_type = Neo4j
