@@ -162,7 +162,7 @@ while i < (int(end_t[0]) + 1):
 	obj = PartOf(day, idv)
 	graph.merge(obj)
 	i+=1
-	j+1
+	j+=1
 
 posc_start = datetime(int(end_t[2]), int(end_t[1]), int(end_t[0]), 0, 0, 0, tzinfo=EDT())
 posc_end = datetime(int(end_t[2]), 12, 31, 23, 59, 59, tzinfo=EDT())
@@ -202,7 +202,7 @@ for data in datas:
 		tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
 		graph.merge(tweet, "Tweet", "tweet_id")
 
-		obj = Node("Source", name=data['source'])
+		obj = Node("Source", name=data['source'].split('>')[1].split('<')[0])
 		graph.merge(obj, "Source", "name")
 
 		rel = Using(tweet, obj)
@@ -231,7 +231,7 @@ for data in datas:
 		tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
 		graph.merge(tweet, "Tweet", "tweet_id")
 
-		obj = Node("Source", name=data['source'])
+		obj = Node("Source", name=data['source'].split('>')[1].split('<')[0])
 		graph.merge(obj, "Source", "name")
 
 		rel = Using(tweet, obj)
@@ -267,9 +267,9 @@ for data in datas:
 			if (t2 >= day_time[0]) and (t2 < day_time[1]) :
 				rel = RelatesTo(tweet, objs[i])
 				graph.merge(rel)
-				i+=1
+			i+=1
 
-		obj = Node("Source", name=data['source'])
+		obj = Node("Source", name=data['source'].split('>')[1].split('<')[0])
 		graph.merge(obj, "Source", "name")
 
 		rel = Using(tweet, obj)
