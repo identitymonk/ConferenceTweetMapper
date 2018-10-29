@@ -338,8 +338,9 @@ Example of the drilling of a Retweet/Quote/Reply:
 Here are some interesting [Cipher request examples](https://github.com/identitymonk/ConferenceTweetMapper/blob/master/Cipher examples/Commands.md)
 
 ## Roadmap
+- Follow RT, Reply, Quote up and down a la treeverse <- Partially solved
+- Merge similar RT into only one RT-Tweet
 - ~~Better date management~~
 - ~~Change the Post and Pre conference period id to something speciifc to the conference upload to prevent cross mapping~~
 - ~~Change the Days of conference period id to something speciifc to the conference upload to prevent cross mapping~~
-- Follow RT, Reply, Quote up and down a la treeverse <- Partially solved
 - ~~Correct name attribue of object Source to remove href~~
