@@ -324,7 +324,7 @@ def graph_load(datas):
                 else:
                     print(label + "--Retweet/quote--In fact, got a retweet")
                     rel = RetweetOf(tweet, nextTweet)
-					graph.merge(rel)
+		    graph.merge(rel)
 
                     rel = RetweetedBy(nextTweet, user)
                     graph.merge(rel)
