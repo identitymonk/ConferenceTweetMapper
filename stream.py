@@ -323,6 +323,7 @@ class listener(StreamListener):
                     else:
                         print("--Retweet/quote--In fact, got a retweet")
                         rel = RetweetOf(tweet, nextTweet)
+                        graph.merge(rel)
 
                         rel = RetweetedBy(nextTweet, user)
                         graph.merge(rel)
@@ -633,6 +634,7 @@ def graph_load(datas):
                 else:
                     print(label + "--Retweet/quote--In fact, got a retweet")
                     rel = RetweetOf(tweet, nextTweet)
+                    graph.merge(rel)
 
                     rel = RetweetedBy(nextTweet, user)
                     graph.merge(rel)
