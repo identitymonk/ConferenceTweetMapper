@@ -338,8 +338,10 @@ Example of the drilling of a Retweet/Quote/Reply:
 Here are some interesting [Cipher request examples](https://github.com/identitymonk/ConferenceTweetMapper/blob/master/Cipher examples/Commands.md)
 
 ## Roadmap
-- Follow RT, Reply, Quote up and down a la treeverse <- Partially solved
-- Merge similar RT into only one RT-Tweet
+- Follow RT, Reply, Quote up and down a la treeverse <- Partially solved, will need script Expand
+- Script Redox: Merge similar RT into only one RT-Tweet
+- Script Expand: Import all the retweets by retweets_of_status_id and replies by in_reply_to_status_id Prenium Search parameters
+- Script Append: Continue an import or update an import with a list of tweets. Look before if tweet is alredy imported or not.
 - ~~Better date management~~
 - ~~Change the Post and Pre conference period id to something speciifc to the conference upload to prevent cross mapping~~
 - ~~Change the Days of conference period id to something speciifc to the conference upload to prevent cross mapping~~
