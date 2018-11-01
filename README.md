@@ -337,7 +337,7 @@ If successful you should be able to use Neo4j tools to visualize and drill your 
 Example of the drilling of a Retweet/Quote/Reply:
 ![Drilling](https://github.com/identitymonk/ConferenceTweetMapper/blob/master/Screencap/Drilling.PNG "Drilling")
 
-Here are some interesting ![Cipher request examples](https://github.com/identitymonk/ConferenceTweetMapper/blob/master/Cipher examples/Commands.md)
+Here are some interesting [Cipher request examples](https://github.com/identitymonk/ConferenceTweetMapper/blob/master/Cipher%20examples/Commands.md)
 
 ## Roadmap
 - Follow RT, Reply, Quote up and down a la treeverse <- Partially solved, will need script Expand
