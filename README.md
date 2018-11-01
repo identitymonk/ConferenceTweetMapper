@@ -26,10 +26,12 @@ In order to use those scripts you must have:
    * configparser
    * argparse
    * py2neo
+   * asyncio
+       * and Microsoft Visual C++ Build Tools if you compile it on Windows, after adding cl.exe in your Path
    
 - Neo4j Db installed, configured, and ready for connection
 
-   I won't detail hee how to do this part, there are plenty of good tutorials on the Web
+   I won't detail here how to do this part, there are plenty of good tutorials on the Web
 
 ## archive.py
 This script can be used as follow:
@@ -344,7 +346,7 @@ Here are some interesting [Cipher request examples](https://github.com/identitym
 - Script Append: Continue an import or update an import with a list of tweets. Look before if tweet is alredy imported or not.
 - Switch script function to Async https://www.aeracode.org/2018/02/19/python-async-simplified/
 - Think about KPIs: Tweet rate, Top for User/Tweet/Hashtag/Mention
-- WebUI to see Grpah online
+- WebUI to see Graph online
 - Update logging to console to be more dynamic
 - ~~Better date management~~
 - ~~Change the Post and Pre conference period id to something speciifc to the conference upload to prevent cross mapping~~
