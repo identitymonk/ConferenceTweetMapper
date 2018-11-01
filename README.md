@@ -343,6 +343,9 @@ Here are some interesting [Cipher request examples](https://github.com/identitym
 - Script Expand: Import all the retweets by retweets_of_status_id and replies by in_reply_to_status_id Prenium Search parameters
 - Script Append: Continue an import or update an import with a list of tweets. Look before if tweet is alredy imported or not.
 - Switch script function to Async https://www.aeracode.org/2018/02/19/python-async-simplified/
+- Think about KPIs: Tweet rate, Top for User/Tweet/Hashtag/Mention
+- WebUI to see Grpah online
+- Update logging to console to be more dynamic
 - ~~Better date management~~
 - ~~Change the Post and Pre conference period id to something speciifc to the conference upload to prevent cross mapping~~
 - ~~Change the Days of conference period id to something speciifc to the conference upload to prevent cross mapping~~
