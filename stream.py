@@ -122,6 +122,8 @@ else:
 
 print(search_query)
 
+serch_query = search_query.split(' OR ')
+
 #Initialization of time zone translation as Twitter returns results in UTC
 class EDT(tzinfo):
     def utcoffset(self, dt):
@@ -837,7 +839,7 @@ twitterStream = Stream(auth, listener(), tweet_mode='extended')
 print('Listening...')
 while True:
     #try:
-        twitterStream.filter(track=[search_query]) #, async=True)
+        twitterStream.filter(track=search_query) #, async=True)
     #except Exception as e:
     #    print "sleeping exception...."
     #    print e
