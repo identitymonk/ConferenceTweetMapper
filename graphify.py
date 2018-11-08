@@ -9,6 +9,7 @@ import json
 import configparser
 import argparse
 import binascii
+import asyncio
 
 #Configuration initialization
 config = configparser.ConfigParser()
@@ -171,7 +172,7 @@ idv_end = datetime(int(end_t[2]), int(end_t[1]), int(end_t[0]), 23, 59, 59, tzin
 idv = Node("Conference", name=conference_name, start=idv_start.strftime("%d/%m/%Y %H:%M:%S %z"), end=idv_end.strftime("%d/%m/%Y %H:%M:%S %z"), location=conference_location)
 graph.merge(idv, "Conference", "name")
 
-prec_start = datetime(int(start_t[2]), 01, 01, 0, 0, 0, tzinfo=EDT())
+prec_start = datetime(int(start_t[2]), 1, 1, 0, 0, 0, tzinfo=EDT())
 prec_end = datetime(int(start_t[2]), int(start_t[1]), int(start_t[0])-1, 23, 59, 59, tzinfo=EDT())
 dates.append([prec_start, prec_end])
 prec = Node("Time", name="Pre-Conference of " + conference_name, start=prec_start.strftime("%d/%m/%Y %H:%M:%S %z"), end=prec_end.strftime("%d/%m/%Y %H:%M:%S %z"))
@@ -215,7 +216,10 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, 
 
 print('Initialization completed...')
 
-def graph_load(datas):
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
+async def graph_load(datas):
     print('Drilling...')
     #data = datas[0]
     #tweets = tweepy.Cursor(api.search,q=drill_query, tweet_mode='extended').items()
@@ -266,10 +270,11 @@ def graph_load(datas):
 
                 else:
                     print(label + '--Retweet/Quote--Simple')
-		    if 'full_text' in data:
-			tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
-		    else:
-			tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                    if 'full_text' in data:
+                        tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                    else:
+                        tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+
                     graph.merge(tweet, "Tweet", "tweet_id")
 
                     for hashtag in data['entities']['hashtags']:
@@ -324,7 +329,7 @@ def graph_load(datas):
                 else:
                     print(label + "--Retweet/quote--In fact, got a retweet")
                     rel = RetweetOf(tweet, nextTweet)
-		    graph.merge(rel)
+                    graph.merge(rel)
 
                     rel = RetweetedBy(nextTweet, user)
                     graph.merge(rel)
@@ -337,14 +342,15 @@ def graph_load(datas):
                 #graph_load("retweets_of_status_id:" + data['retweeted_status']['id_str'])
                 next_ids = []
                 next_ids.append(data['retweeted_status']['id_str'])
-                graph_load(api.statuses_lookup(next_ids))
+                await(graph_load(api.statuses_lookup(next_ids)))
 
             elif data['in_reply_to_status_id'] != None:
                 print(label + "Got a reply")
                 if 'full_text' in data:
-		    tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                    tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
                 else:
-		    tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                    tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+
                 graph.merge(tweet, "Tweet", "tweet_id")
 
                 if 'extended_tweet' in data:
@@ -374,9 +380,10 @@ def graph_load(datas):
                 else:
                     print(label + "--Reply--Simple")
                     if 'full_text' in data:
-			tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
-		    else:
-			tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                        tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                    else:
+                        tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+
                     graph.merge(tweet, "Tweet", "tweet_id")
 
                     for hashtag in data['entities']['hashtags']:
@@ -422,16 +429,16 @@ def graph_load(datas):
 
                 graph.run("MATCH (Tweet {tweet_id: {a}})<-[r:REPLY_TO]-() WITH Tweet, Count(r) as Total SET Tweet.replied = Total", a=data['in_reply_to_status_id_str'])
                 if 'full_text' in data:
-		    graph.run("MATCH ()<-[r:REPLY_TO]-(Tweet {name: {a}}) WITH Tweet, Count(r) as Total SET Tweet.replying = Total", a=data['full_text'])
-		else:
-		    graph.run("MATCH ()<-[r:REPLY_TO]-(Tweet {name: {a}}) WITH Tweet, Count(r) as Total SET Tweet.replying = Total", a=data['text'])
+                    graph.run("MATCH ()<-[r:REPLY_TO]-(Tweet {name: {a}}) WITH Tweet, Count(r) as Total SET Tweet.replying = Total", a=data['full_text'])
+                else:
+                    graph.run("MATCH ()<-[r:REPLY_TO]-(Tweet {name: {a}}) WITH Tweet, Count(r) as Total SET Tweet.replying = Total", a=data['text'])
 
                 print(label + '--Reply--Drilling ' + data['in_reply_to_status_id_str'])
                 #graph_load(api.statuses_lookup(int(binascii.hexlify(data['in_reply_to_status_id_str']))))
                 #graph_load("in_reply_to_status_id:" + data['in_reply_to_status_id_str'])
                 next_ids = []
                 next_ids.append(data['in_reply_to_status_id_str'])
-                graph_load(api.statuses_lookup(next_ids))
+                await(graph_load(api.statuses_lookup(next_ids)))
 
             else:
                 print(label + "Got a tweet")
@@ -465,9 +472,10 @@ def graph_load(datas):
                 else:
                     print(label + '--Tweet--Simple')
                     if 'full_text' in data:
-			tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
-		    else:
-			tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                        tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                    else:
+                        tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+
                     graph.merge(tweet, "Tweet", "tweet_id")
 
                     for hashtag in data['entities']['hashtags']:
@@ -572,32 +580,32 @@ for data in datas:
 							graph.run("MATCH (User {id: {a}})<-[r:MENTIONS]-() WITH User, Count(r) as Total SET User.mentioned = Total",a=user_mention['id_str'])
 
 				else:
-					print('--Retweet/Quote--Simple')
-					if 'full_text' in data:
-					    tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
-					else:
-					    tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
-					graph.merge(tweet, "Tweet", "tweet_id")
+                                    print('--Retweet/Quote--Simple')
+                                    if 'full_text' in data:
+                                        tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                                    else:
+                                        tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+                                    graph.merge(tweet, "Tweet", "tweet_id")
 
-					for hashtag in data['entities']['hashtags']:
-						if hashtag['text'].upper() != filter_conference_hashtag.upper():
-							obj = Node("Hashtag", name="#" + hashtag['text'].upper())
-							graph.merge(obj, "Hashtag", "name")
+                                    for hashtag in data['entities']['hashtags']:
+                                        if hashtag['text'].upper() != filter_conference_hashtag.upper():
+                                            obj = Node("Hashtag", name="#" + hashtag['text'].upper())
+                                            graph.merge(obj, "Hashtag", "name")
 
-							rel = RefersTo(tweet, obj)
-							graph.merge(rel)
+                                            rel = RefersTo(tweet, obj)
+                                            graph.merge(rel)
 
-							graph.run("MATCH (Hashtag {name: {a}})<-[r:REFERS_TO]-() WITH Hashtag, Count(r) as Total SET Hashtag.mentioned = Total",a="#" + hashtag['text'].upper())
+                                            graph.run("MATCH (Hashtag {name: {a}})<-[r:REFERS_TO]-() WITH Hashtag, Count(r) as Total SET Hashtag.mentioned = Total",a="#" + hashtag['text'].upper())
 
-					for user_mention in data['entities']['user_mentions']:
-						 if user_mention['screen_name'] != filter_organizer_twitter_screename:
-							obj = Node("User", name="@" + user_mention['screen_name'], id=user_mention['id_str'])
-							graph.merge(obj, "User", "name")
+                                    for user_mention in data['entities']['user_mentions']:
+                                        if user_mention['screen_name'] != filter_organizer_twitter_screename:
+                                            obj = Node("User", name="@" + user_mention['screen_name'], id=user_mention['id_str'])
+                                            graph.merge(obj, "User", "name")
 
-							rel = Mentions(tweet, obj)
-							graph.merge(rel)
+                                            rel = Mentions(tweet, obj)
+                                            graph.merge(rel)
 
-							graph.run("MATCH (User {id: {a}})<-[r:MENTIONS]-() WITH User, Count(r) as Total SET User.mentioned = Total",a=user_mention['id_str'])
+                                            graph.run("MATCH (User {id: {a}})<-[r:MENTIONS]-() WITH User, Count(r) as Total SET User.mentioned = Total",a=user_mention['id_str'])
 
 				print('--Retweet/Quote--Source')
 				source = Node("Source", name=data['source'].split('>')[1].split('<')[0])
@@ -644,13 +652,15 @@ for data in datas:
 				#graph_load("retweets_of_status_id:" + data['retweeted_status']['id_str'])
 				next_ids = []
 				next_ids.append(data['retweeted_status']['id_str'])
-				graph_load(api.statuses_lookup(next_ids))
+				loop.run_until_complete(graph_load(api.statuses_lookup(next_ids)))
+
 			elif data['in_reply_to_status_id'] != None:
 				print("got a reply")
 				if 'full_text' in data:
 				    tweet = Node("Tweet", name=data['full_text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
 				else:
 				    tweet = Node("Tweet", name=data['text'], tweet_id=data['id_str'], created_at=data['created_at'], favorites=data['favorite_count'], retweets=data['retweet_count'])
+
 				graph.merge(tweet, "Tweet", "tweet_id")
 
 				if 'extended_tweet' in data:
@@ -737,7 +747,7 @@ for data in datas:
 				#graph_load("in_reply_to_status_id:" + data['in_reply_to_status_id_str'])
 				next_ids = []
 				next_ids.append(data['in_reply_to_status_id_str'])
-				graph_load(api.statuses_lookup(next_ids))
+				loop.run_until_complete(graph_load(api.statuses_lookup(next_ids)))
 
 			else:
 				print("got a tweet")
@@ -823,7 +833,12 @@ for data in datas:
 
 				graph.run("MATCH (User {name: {a}})<-[r:AUTHORED_BY]-() WITH User, Count(r) as Total SET User.tweets = Total", a="@" + data['user']['screen_name'])
 
-	except AttributeError, KeyError:
-		print('Got an attribute error')
+	#except AttributeError:
+	#	print('Got an attribute error')
+	#	print(data)
+	#	print(AttributeError)
+
+	except KeyError:
+		print('Got a key error')
 		print(data)
-		print(AttributeError)
+		print(KeyError)

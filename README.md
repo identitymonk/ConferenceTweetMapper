@@ -16,7 +16,10 @@ This repository contains three Python scripts:
 ## Pre-requisites
 
 In order to use those scripts you must have:
-- Python 2.7 installed (only version tested so far)
+- Python
+	* 2.7: works for all scripts except graphify.py in its async version
+	* 3.7: have been tested only with graphify.py
+
 - Pip installed
 - Python packages installed:
 
@@ -27,7 +30,7 @@ In order to use those scripts you must have:
    * argparse
    * py2neo
    * asyncio
-       * and Microsoft Visual C++ Build Tools if you compile it on Windows, after adding cl.exe in your Path
+       * requires Python 3.X to work
    
 - Neo4j Db installed, configured, and ready for connection
 
@@ -344,7 +347,7 @@ Here are some interesting [Cipher request examples](https://github.com/identitym
 - Script Redox: Merge similar RT into only one RT-Tweet
 - Script Expand: Import all the retweets by retweets_of_status_id and replies by in_reply_to_status_id Prenium Search parameters
 - Script Append: Continue an import or update an import with a list of tweets. Look before if tweet is alredy imported or not.
-- Switch script function to Async https://www.aeracode.org/2018/02/19/python-async-simplified/
+- ~~Switch script function to Async https://www.aeracode.org/2018/02/19/python-async-simplified/~~
 - Think about KPIs: Tweet rate, Top for User/Tweet/Hashtag/Mention
 - WebUI to see Graph online
 - Update logging to console to be more dynamic
