@@ -515,6 +515,7 @@ async def graph_load(datas):
                     if (t2 >= day_time[0]) and (t2 < day_time[1]):
                         rel = RelatesTo(tweet, objs[i])
                         graph.merge(rel)
+						break
                     i+=1
 
                 print(label + '--Tweet--Source')
@@ -823,6 +824,7 @@ for data in datas:
 					if (t2 >= day_time[0]) and (t2 < day_time[1]):
 						rel = RelatesTo(tweet, objs[i])
 						graph.merge(rel)
+						break
 					i+=1
 
 				print('--Tweet--Source')
