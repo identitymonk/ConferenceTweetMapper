@@ -31,6 +31,7 @@ parser_line.add_argument('-o', '--output_filename', required=True, help='Name of
 parser_line.add_argument('-type', '--db_type', default='Neo4j', help='For future use: indicate db type')
 parser_line.add_argument('-proto', '--protocol', default='bolt', help='For future use: indicate protocol to connect to db')
 parser_line.add_argument('-lang', '--language', default='cypher', help='For future use: indicate language to query the db')
+parser_line.add_argument('-sec', '--secure', default='False', help='Flag for secure connection')
 parser_line.add_argument('-server', '--server_name', default='localhost', help='FQDN of the db server')
 parser_line.add_argument('-port', '--server_port', default='7687', help='server socket hosting the db service')
 parser_line.add_argument('-pwd', '--db_password', required=True, help='service password to access the db')
@@ -65,6 +66,7 @@ if elements['cmd'] == 'file':
     db_type = config['Graph']['db_type']
     protocol = config['Graph']['protocol']
     language = config['Graph']['language']
+	secure = config['Graph']['secure']
     server_name = config['Graph']['server_name']
     server_port = config['Graph']['server_port']
     db_password = config['Graph']['db_password']
@@ -92,6 +94,7 @@ elif elements['cmd'] == 'line':
     db_type = elements['db_type']
     protocol = elements['protocol']
     language = elements['language']
+	secure = elements['secure']
     server_name = elements['server_name']
     server_port = elements['server_port']
     db_password = elements['db_password']
@@ -153,7 +156,11 @@ class ReplyOf(Relationship): pass
 class LocatedAt(Relationship): pass
 
 #Connect to db
-graph = Graph(protocol + '://' + server_name + ':' + server_port, password=db_password)
+if secure == 'True':
+	graph = Graph(protocol + '://' + server_name + ':' + server_port, password=db_password, secure=True)
+else:
+	graph = Graph(protocol + '://' + server_name + ':' + server_port, password=db_password)
+
 print("Initialiazing...")
 
 if purge_before_import == 'True':
