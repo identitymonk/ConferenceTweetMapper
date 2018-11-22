@@ -68,7 +68,7 @@ if elements['cmd'] == 'file':
     protocol = config['Graph']['protocol']
     language = config['Graph']['language']
     server_name = config['Graph']['server_name']
-	secure = config['Graph']['secure']
+    secure = config['Graph']['secure']
     server_port = config['Graph']['server_port']
     db_password = config['Graph']['db_password']
 
@@ -95,7 +95,7 @@ elif elements['cmd'] == 'line':
     db_type = elements['db_type']
     protocol = elements['protocol']
     language = elements['language']
-	secure = elements['secure']
+    secure = elements['secure']
     server_name = elements['server_name']
     server_port = elements['server_port']
     db_password = elements['db_password']
@@ -515,7 +515,7 @@ async def graph_load(datas):
                     if (t2 >= day_time[0]) and (t2 < day_time[1]):
                         rel = RelatesTo(tweet, objs[i])
                         graph.merge(rel)
-						break
+                        break
                     i+=1
 
                 print(label + '--Tweet--Source')
@@ -821,11 +821,11 @@ for data in datas:
 				i = 0
 
 				for day_time in dates:
-					if (t2 >= day_time[0]) and (t2 < day_time[1]):
-						rel = RelatesTo(tweet, objs[i])
-						graph.merge(rel)
-						break
-					i+=1
+				    if (t2 >= day_time[0]) and (t2 < day_time[1]):
+					rel = RelatesTo(tweet, objs[i])
+					graph.merge(rel)
+					break
+				    i+=1
 
 				print('--Tweet--Source')
 				source = Node("Source", name=data['source'].split('>')[1].split('<')[0])

@@ -66,7 +66,7 @@ if elements['cmd'] == 'file':
     db_type = config['Graph']['db_type']
     protocol = config['Graph']['protocol']
     language = config['Graph']['language']
-	secure = config['Graph']['secure']
+    secure = config['Graph']['secure']
     server_name = config['Graph']['server_name']
     server_port = config['Graph']['server_port']
     db_password = config['Graph']['db_password']
@@ -94,7 +94,7 @@ elif elements['cmd'] == 'line':
     db_type = elements['db_type']
     protocol = elements['protocol']
     language = elements['language']
-	secure = elements['secure']
+    secure = elements['secure']
     server_name = elements['server_name']
     server_port = elements['server_port']
     db_password = elements['db_password']
@@ -507,7 +507,7 @@ class listener(StreamListener):
                         if (t2 >= day_time[0]) and (t2 < day_time[1]):
                             rel = RelatesTo(tweet, objs[i])
                             graph.merge(rel)
-							break
+                            break
                         i+=1
 
                     print('--Tweet--Source')
@@ -820,7 +820,7 @@ def graph_load(datas):
                     if (t2 >= day_time[0]) and (t2 < day_time[1]):
                         rel = RelatesTo(tweet, objs[i])
                         graph.merge(rel)
-						break
+                        break
                     i+=1
 
                 print(label + '--Tweet--Source')
