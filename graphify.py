@@ -822,9 +822,9 @@ for data in datas:
 
 				for day_time in dates:
 				    if (t2 >= day_time[0]) and (t2 < day_time[1]):
-					rel = RelatesTo(tweet, objs[i])
-					graph.merge(rel)
-					break
+                                        rel = RelatesTo(tweet, objs[i])
+                                        graph.merge(rel)
+                                        break
 				    i+=1
 
 				print('--Tweet--Source')
