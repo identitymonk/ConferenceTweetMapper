@@ -236,7 +236,7 @@ async def graph_load(datas):
         if data['user']['screen_name'] != filter_organizer_twitter_screename:
             print(label + 'Process Tweet user')
 
-            user = Node("User", name="@" + data['user']['screen_name'], real_name=data['user']['name'], id=data['user']['id_str'], description=data['user']['description'])
+            user = Node("User", name="@" + data['user']['screen_name'], real_name=data['user']['name'], uid=data['user']['id_str'], description=data['user']['description'])
             graph.merge(user, "User", "name")
 
             if ('location' in data['user']) and (data['user']['location'] is not None):
@@ -548,7 +548,7 @@ for data in datas:
 		if data['user']['screen_name'] != filter_organizer_twitter_screename:
 			print('Process Tweet user')
 
-			user = Node("User", name="@" + data['user']['screen_name'], real_name=data['user']['name'], id=data['user']['id_str'], description=data['user']['description'])
+			user = Node("User", name="@" + data['user']['screen_name'], real_name=data['user']['name'], uid=data['user']['id_str'], description=data['user']['description'])
 			graph.merge(user, "User", "name")
 
 			if ('location' in data['user']) and (data['user']['location'] is not None):
