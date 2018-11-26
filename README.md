@@ -29,6 +29,7 @@ In order to use those scripts you must have:
    * configparser
    * argparse
    * py2neo
+   * pandas
    * asyncio
        * requires Python 3.X to work
    
@@ -150,6 +151,8 @@ optional arguments:
                         For future use: indicate protocol to connect to db
   -lang LANGUAGE, --language LANGUAGE
                         For future use: indicate language to query the db
+  -sec SECURE, --secure SECURE
+                        Flag for secure connection
   -server SERVER_NAME, --server_name SERVER_NAME
                         FQDN of the db server
   -port SERVER_PORT, --server_port SERVER_PORT
@@ -258,6 +261,8 @@ optional arguments:
                         For future use: indicate protocol to connect to db
   -lang LANGUAGE, --language LANGUAGE
                         For future use: indicate language to query the db
+  -sec SECURE, --secure SECURE
+                        Flag for secure connection
   -server SERVER_NAME, --server_name SERVER_NAME
                         FQDN of the db server
   -port SERVER_PORT, --server_port SERVER_PORT
@@ -343,12 +348,13 @@ Example of the drilling of a Retweet/Quote/Reply:
 Here are some interesting [Cipher request examples](https://github.com/identitymonk/ConferenceTweetMapper/blob/master/Cipher%20examples/Commands.md)
 
 ## Roadmap
+- Generates statistics (1rst level Tweeters, 1rst level Tweets, engaged Twitters, engaged Tweets, etc.)
 - Follow RT, Reply, Quote up and down a la treeverse <- Partially solved, will need script Expand
 - Script Redox: Merge similar RT into only one RT-Tweet
 - Script Expand: Import all the retweets by retweets_of_status_id and replies by in_reply_to_status_id Prenium Search parameters
 - Script Append: Continue an import or update an import with a list of tweets. Look before if tweet is alredy imported or not.
 - ~~Switch script function to Async https://www.aeracode.org/2018/02/19/python-async-simplified/~~
-- Think about KPIs: Tweet rate, Top for User/Tweet/Hashtag/Mention
+- Think about KPIs: Tweet rate, Top for User/Tweet/Hashtag/Mention (see Generates statistics)
 - WebUI to see Graph online
 - Update logging to console to be more dynamic
 - ~~Better date management~~
