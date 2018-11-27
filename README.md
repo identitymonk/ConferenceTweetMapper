@@ -17,8 +17,8 @@ This repository contains three Python scripts:
 
 In order to use those scripts you must have:
 - Python
-	* 2.7: works for all scripts except graphify.py in its async version
-	* 3.7: have been tested only with graphify.py
+	* 2.7: All not in the Python 3.X list below
+	* 3.7: For graphify.py, archive.py
 
 - Pip installed
 - Python packages installed:
@@ -29,7 +29,6 @@ In order to use those scripts you must have:
    * configparser
    * argparse
    * py2neo
-   * pandas
    * asyncio
        * requires Python 3.X to work
    

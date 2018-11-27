@@ -78,7 +78,7 @@ count = 0
 errorCount=0
 
 #Result file
-file = open(output_filenane, 'wb')
+file = open(output_filenane, 'w')
 
 #Processing
 data = []
@@ -92,21 +92,21 @@ while True:
     except tweepy.TweepError:
         #catches TweepError when rate limiting occurs, sleeps, then restarts.
         #nominally 15 minnutes, make a bit longer to avoid attention.
-        print "sleeping...."
+        print("sleeping....")
         time.sleep(60*16)
         user = next(users)
     except StopIteration:
         break
     try:
-        print "Writing to JSON tweet number:"+str(count)
+        print("Writing to JSON tweet number:"+str(count))
         #json.dump(user._json,file,sort_keys = True,indent = 4)
         data.append(user._json)
     except UnicodeEncodeError:
         errorCount += 1
-        print "UnicodeEncodeError,errorCount ="+str(errorCount)
+        print("UnicodeEncodeError,errorCount ="+str(errorCount))
 
 json.dump(data,file,sort_keys = True,indent = 4)
-print "completed, errorCount ="+str(errorCount)+" total tweets="+str(count)
+print("completed, errorCount ="+str(errorCount)+" total tweets="+str(count))
 
     #todo: write users to file, search users for interests, locations etc.
 
