@@ -177,7 +177,7 @@ dates = []
 objs = []
 idv_start = datetime(int(start_t[2]), int(start_t[1]), int(start_t[0]), 0, 0, 0, tzinfo=EDT())
 idv_end = datetime(int(end_t[2]), int(end_t[1]), int(end_t[0]), 23, 59, 59, tzinfo=EDT())
-idv = Node("Conference", name=conference_name, start=idv_start.strftime("%d/%m/%Y %H:%M:%S %z"), end=idv_end.strftime("%d/%m/%Y %H:%M:%S %z"), location=conference_location)
+idv = Node("Conference", name=conference_name, start=idv_start.strftime("%d/%m/%Y %H:%M:%S %z"), end=idv_end.strftime("%d/%m/%Y %H:%M:%S %z"), location=conference_location, organizer=filter_organizer_twitter_screename)
 graph.merge(idv, "Conference", "name")
 
 prec_start = datetime(int(start_t[2]), 01, 01, 0, 0, 0, tzinfo=EDT())
