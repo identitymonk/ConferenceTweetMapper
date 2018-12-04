@@ -31,3 +31,15 @@ Return TOP 3 RepliedTo Users for a specific conference day except the organizer
 ```
 MATCH (u:User)<-[:AuthoredBy]-(n:Tweet)<-[r:ReplyTo]-(m:Tweet) WHERE u.name <> '@pingidentity' AND (n)-[*0..]->(:Time {name: 'Day #1 of Identify 2018 - SF'})-[:PartOf]->(:Conference {name: 'Identify 2018 - SF'}) WITH u, Count(DISTINCT n.name) AS Total RETURN DISTINCT u.name, Total ORDER BY Total DESC LIMIT 3
 ```
+
+Return Source of Tweet for one user
+```
+MATCH (u:User)<-[r:AuthoredBy]-(t:Tweet)-[x:Using]->(s:Source)
+WHERE u.name = '@someone'
+WITH u, collect(DISTCINT s) AS Means
+UNWIND Means as Item
+MATCH (u2:User)<-[r2:AuthoredBy]-(t2:Tweet)-[x2:Using]->(s2:Source)
+WHERE u2.name = '@someone' AND s2.name = Item.name
+WITH {user: u2.name, source: Item.name, Total: count(x2)} AS Stat
+RETURN Stat
+```
