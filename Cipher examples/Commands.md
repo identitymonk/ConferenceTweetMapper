@@ -36,7 +36,7 @@ Return Source of Tweet for one user
 ```
 MATCH (u:User)<-[r:AuthoredBy]-(t:Tweet)-[x:Using]->(s:Source)
 WHERE u.name = '@someone'
-WITH u, collect(DISTCINT s) AS Means
+WITH u, collect(DISTINCT s) AS Means
 UNWIND Means as Item
 MATCH (u2:User)<-[r2:AuthoredBy]-(t2:Tweet)-[x2:Using]->(s2:Source)
 WHERE u2.name = '@someone' AND s2.name = Item.name
